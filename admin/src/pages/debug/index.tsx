@@ -1,3 +1,11 @@
+import { Tabs } from "../../components";
+
 export default function DebugPage({}) {
-	return <div>kek</div>;
+  const tabData = { Users: <div>users</div>, Test: <div>test</div> };
+  return (
+    <div>
+      <Tabs data={tabData} />
+      <div className=""></div>
+    </div>
+  );
 }

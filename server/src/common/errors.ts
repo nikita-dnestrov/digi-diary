@@ -6,6 +6,15 @@ export abstract class CustomError extends Error {
 	}
 }
 
+export class UnauthorizedError extends CustomError {
+	statusCode = 401;
+	errorMessage = this.message;
+	constructor() {
+		super("Unauthorized");
+		Object.setPrototypeOf(this, NotFoundError.prototype);
+	}
+}
+
 export class NotFoundError extends CustomError {
 	statusCode = 404;
 	errorMessage = this.message;

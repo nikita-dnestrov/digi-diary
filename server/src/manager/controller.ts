@@ -15,7 +15,7 @@ class ManagerController {
 		const manager = await managerService.create({
 			phone,
 			type,
-			password: await managerService.createHash(password),
+			password: managerService.createHash(password),
 		});
 
 		const token = managerService.jwtSign(manager);
@@ -46,9 +46,10 @@ class ManagerController {
 	}
 
 	async updateProfile(req: ExtRequest, res: Response) {
+		console.log(req.body);
 		await managerService.updateProfile(req.user, req.body);
 
-		res.send(200).json({ message: "Success" });
+		res.status(200).json({ message: "Success" });
 	}
 }
 

@@ -4,6 +4,8 @@ import { debugFns } from "./fns";
 
 export const debugRouter = Router();
 
-const { getUsers } = debugFns;
+const { getUsers, createUser, updateUser } = debugFns;
 
-debugRouter.post("/users", getUsers);
+debugRouter.get("/users", getUsers);
+debugRouter.post("/users", createUser);
+debugRouter.put("/users", updateUser);

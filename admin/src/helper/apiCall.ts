@@ -1,13 +1,13 @@
-import axios from "axios";
+import axios from 'axios';
 
-const baseUrl = "http://localhost:9000/api";
+const baseUrl = 'http://localhost:9000/api';
 
 export const apiCall = async (url: string, method: string, data?: any) => {
-	const token = localStorage.getItem("token");
+	const token = localStorage.getItem('token');
 	return await axios({
 		url: `${baseUrl}${url}`,
 		method,
 		data,
-		headers: { Authorization: `Bearer ${token}` },
+		headers: { Authorization: `Debug ${token}` },
 	});
 };

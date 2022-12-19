@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
-import { Manager } from "../db";
+import { Manager } from "../db/db";
 import { CONFIG } from "../config";
 
 class ManagerService {

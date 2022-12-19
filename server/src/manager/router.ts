@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { validate } from "../common";
+import { withToken } from "../common/jwt.middleware";
 import { managerController } from "./controller";
 import { signInSchema, signUpSchema } from "./validation";
 
@@ -9,5 +10,5 @@ const { signup, signin, getProfile, updateProfile } = managerController;
 
 managerRouter.post("/signup", validate(signUpSchema), signup);
 managerRouter.post("/signin", validate(signInSchema), signin);
-managerRouter.get("/profile", getProfile);
-managerRouter.put("/profile", updateProfile);
+managerRouter.get("/profile", withToken, getProfile);
+managerRouter.put("/profile", withToken, updateProfile);
